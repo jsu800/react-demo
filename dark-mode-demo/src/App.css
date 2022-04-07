@@ -1,28 +1,6 @@
-/* Business Card */
-
-div.light {
-  height: 200px;
-  width: 300px;
-  color: black;
-  background-color: white;
-  padding: 2rem 4rem; 
-  text-align: left;
-}
-
-div.dark {
-  height: 200px;
-  width: 190px;
-  color: white;
-  background-color: black;
-  padding: 2rem 4rem; 
-  text-align: left;
-}
-
 /* Nav & toggler */
 
 nav {
-  height: 200px;
-  width: 300px;
   display: flex;
   align-items: center;
   background-color: #ffffff;
