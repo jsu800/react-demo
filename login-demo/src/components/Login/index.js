@@ -1,6 +1,6 @@
 import React from "react";
 
-function Login() {
+function LoginPage() {
   return (
     <div className="login-wrapper">
       <h1>Please Log In</h1>
@@ -21,4 +21,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;
