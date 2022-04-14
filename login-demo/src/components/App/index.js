@@ -4,19 +4,12 @@ import LoginPage from "../Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavigationPage from "../Navigation";
 import * as ROUTES from "../../constants/paths";
-
-function setToken(userToken) {
-  sessionStorage.setItem("token", JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenItem = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenItem);
-  return userToken?.token;
-}
+import useToken from "../Hooks/useToken";
 
 function App() {
-  const token = getToken();
+  // const token = getToken();
+
+  const { token, setToken } = useToken();
 
   if (!token) {
     return <LoginPage setToken={setToken} />;
