@@ -13,6 +13,7 @@ async function fetchToken(creds) {
 function LoginPage({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -22,6 +23,16 @@ function LoginPage({ setToken }) {
     });
     setToken(token);
   };
+
+  const validateChar = evt => {
+    // javascript.prototype.test() 
+    // regex.test(str)
+    if (/\*/.test(username)) {
+      setError(true);
+      return;
+    }
+    setError(false);
+  }
 
   return (
     <div className="login-wrapper">
@@ -34,15 +45,17 @@ function LoginPage({ setToken }) {
             onChange={(evt) => setUserName(evt.target.value)}
           />
         </label>
+        {error && <div>You entered an invalid character: *</div>}
         <label>
           <p>Password</p>
           <input
             type="password"
+            autoComplete="off"
             onChange={(evt) => setPassword(evt.target.value)}
           />
         </label>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={validateChar}>Submit</button>
         </div>
       </form>
     </div>
